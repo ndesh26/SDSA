@@ -7,5 +7,6 @@ int main() {
     int i;
     radixSort(a, 10, 4);
     for(i = 0; i < 10; i++) printf("%d ",a[i]);
+    printf("\n");
     return 0;
 }
