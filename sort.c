@@ -137,3 +137,20 @@ void quickSort (int *a, int left, int right) {
         quickSort(a, pivot + 1, right);
     }
 }
+
+/*---------------insertion-sort---------------*/
+void insertionSort (int *a, int left, int right) {
+    int i, j, key;
+
+    for (i = left + 1; i <= right; i++) {
+        key = a[i];
+        j = i - 1;
+        
+        while ((j >= left) && (a[j]>key)) {
+            a[j + 1] = a[j];
+            j--;
+        }
+        
+        a[j + 1] = key;
+    }
+}
