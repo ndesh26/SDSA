@@ -55,21 +55,21 @@ void radixSort (int *a, int n, int d) {
     for (i = 1; i <= d; i++) countSortForRadix (a, n, 10, i);
 }
 
-void merge(int *a, int left, int mid, int right){
+void merge (int *a, int left, int mid, int right) {
     int i, m, k, l;
-    
+
     l = left;
     i = left;
     m = mid + 1;
-    
+
     while ((l <= mid) && (m <= right)) {
         if (a[l] <= a[m]) {
             temp[i] = a[l];
-            l++; 
+            l++;
         }
-        else { 
-            temp[i] = a[m]; 
-            m++; 
+        else {
+            temp[i] = a[m];
+            m++;
         }
         i++;
     }
@@ -80,7 +80,7 @@ void merge(int *a, int left, int mid, int right){
              i++;
          }
     }
-    
+
     else {
 	for (k = l; k <= mid; k++) {
             temp[i] = a[k];
@@ -91,7 +91,7 @@ void merge(int *a, int left, int mid, int right){
     for (k = left; k <= right; k++) a[k] = temp[k];
 }
 
-void mergeSort(int *a, int left, int right) {
+void mergeSort (int *a, int left, int right) {
     int mid;
 
     if (left < right) {
