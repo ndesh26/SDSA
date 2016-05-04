@@ -4,6 +4,10 @@
 
 #include "sort.h"
 
+#define MAX 1000000
+
+int temp[MAX];
+
 void countSort (int *a, int n, int k) {
     int *count, *place, *temp, i, j;
 
@@ -50,3 +54,52 @@ void radixSort (int *a, int n, int d) {
 
     for (i = 1; i <= d; i++) countSortForRadix (a, n, 10, i);
 }
+
+void merge(int *a, int left, int mid, int right){
+    int i, m, k, l;
+    
+    l = left;
+    i = left;
+    m = mid + 1;
+    
+    while ((l <= mid) && (m <= right)) {
+        if (a[l] <= a[m]) {
+            temp[i] = a[l];
+            l++; 
+        }
+        else { 
+            temp[i] = a[m]; 
+            m++; 
+        }
+        i++;
+    }
+
+    if (l > mid) {
+         for (k = m; k <= right; k++) {
+             temp[i] = a[k];
+             i++;
+         }
+    }
+    
+    else {
+	for (k = l; k <= mid; k++) {
+            temp[i] = a[k];
+            i++;
+        }
+    }
+
+    for (k = left; k <= right; k++) a[k] = temp[k];
+}
+
+void mergeSort(int *a, int left, int right) {
+    int mid;
+
+    if (left < right) {
+	 mid = (left + right) / 2;
+         mergeSort (a, left, mid);
+         mergeSort (a, mid+1, right);
+         merge (a, left, mid, right);
+    }
+}
+
+
