@@ -154,3 +154,18 @@ void insertionSort (int *a, int left, int right) {
         a[j + 1] = key;
     }
 }
+/*---------------insertion-sort---------------*/
+void bubbleSort (int *a, int left, int right) {
+    int i, j, max;
+
+    for (i = right; i > left; i--) {
+        max = i;
+
+        for (j = left; j <= i; j++) {
+            if (a[j] > a[max]) max = j; 
+        }
+        
+        swap (a, max, i);
+
+    }
+}
