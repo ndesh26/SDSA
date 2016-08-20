@@ -1,5 +1,5 @@
 all: test
 
-test: test.c sort.c sort.h
-	gcc test.c sort.c -o test
+test: demos/test.c src/sort.c src/sort.h
+	gcc -I ./src/ demos/test.c src/*.c -o demos/test
 

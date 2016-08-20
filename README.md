@@ -1,24 +1,13 @@
-## Sorting Algorithms in C
+## Standard Data Structures and Algorithms in C 
 
-This is my attempt to make a small library which contains sorting algorithms which
+This is my attempt to make a small library which contains standard data structure and algorithms which
 were taught in my course on Algorithms.
 
-The Functions implemeted:-
+Data Structures Implemented:-
 
-1. insertionSort
-2. mergeSort
-3. quickSort
-4. countingSort
-5. radixSort
+Algorithms Implemented:-
 
-### How to Use
-
-All the functions are take a standard input the pointer to array, left index and the right index.
-eg.
-
-```c
-insertionSort(int *arr, int left, int right)
-```
+1. Sorting Algorithms
 
 ### More To Do
 
