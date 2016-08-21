@@ -9,12 +9,13 @@
 int temp[MAX];
 
 /*---------------count-sort---------------*/
-void countSort (int *a, int n, int k) {
+void countSort(int *a, int n, int k)
+{
     int *count, *place, *temp, i, j;
 
-    count = calloc (k, sizeof (int));
-    place = calloc (k, sizeof (int));
-    temp = calloc (n, sizeof (int));
+    count = calloc(k, sizeof (int));
+    place = calloc(k, sizeof (int));
+    temp = calloc(n, sizeof (int));
 
     for (i = 0; i < k; i++) count[i] = 0;
     for (i = 0; i < n; i++) count[a[i]]++;
@@ -30,12 +31,13 @@ void countSort (int *a, int n, int k) {
 }
 
 /*---------------radix-sort---------------*/
-void countSortForRadix (int *a, int n, int k, int p) {
+void countSortForRadix(int *a, int n, int k, int p)
+{
     int *count, *place, *temp, i, j, t = 1;
 
     count = calloc(k,sizeof(int));
     place = calloc(k,sizeof(int));
-    temp = calloc (n, sizeof(int));
+    temp = calloc(n, sizeof(int));
     
     for (i = 0; i < k; i++) count[i] = 0;
     for (i = 1; i < p; i++) t = t * 10;
@@ -51,14 +53,16 @@ void countSortForRadix (int *a, int n, int k, int p) {
     for (i = 0; i < n; i++) a[i] = temp[i];   
 }
 
-void radixSort (int *a, int n, int d) {
+void radixSort(int *a, int n, int d)
+{
     int i;
 
     for (i = 1; i <= d; i++) countSortForRadix (a, n, 10, i);
 }
 
 /*---------------merge-sort---------------*/
-void merge (int *a, int left, int mid, int right) {
+void merge(int *a, int left, int mid, int right)
+{
     int i, m, k, l;
 
     l = left;
@@ -94,19 +98,21 @@ void merge (int *a, int left, int mid, int right) {
     for (k = left; k <= right; k++) a[k] = temp[k];
 }
 
-void mergeSort (int *a, int left, int right) {
+void mergeSort(int *a, int left, int right)
+{
     int mid;
 
     if (left < right) {
 	 mid = (left + right) / 2;
-         mergeSort (a, left, mid);
-         mergeSort (a, mid+1, right);
-         merge (a, left, mid, right);
+         mergeSort(a, left, mid);
+         mergeSort(a, mid+1, right);
+         merge(a, left, mid, right);
     }
 }
 
 /*---------------quick-sort---------------*/
-void swap (int *a, int i, int j) {
+void swap(int *a, int i, int j)
+{
     int temp;
 
     temp = a[i];
@@ -114,13 +120,14 @@ void swap (int *a, int i, int j) {
     a[j] = temp;
 }
 
-int partition (int *a, int left, int right) {
+int partition(int *a, int left, int right)
+{
     int i = left, j = right, pivot = left;
 
     while (i < j) {
         while ((a[i] <= a[pivot]) && (i <= right)) i++;
         while (a[j] > a[pivot]) j--;
-        if (i < j) swap (a, i, j);
+        if (i < j) swap(a, i, j);
     }
 
     swap (a, pivot, j);
@@ -128,18 +135,20 @@ int partition (int *a, int left, int right) {
     return j;
 }
 
-void quickSort (int *a, int left, int right) {
-    if(left < right){
+void quickSort(int *a, int left, int right)
+{
+    if (left < right) {
 	int i = left, j = right, pivot;
 
-        pivot = partition (a, left, right);
-        quickSort (a, left, pivot - 1);
+        pivot = partition(a, left, right);
+        quickSort(a, left, pivot - 1);
         quickSort(a, pivot + 1, right);
     }
 }
 
 /*---------------insertion-sort---------------*/
-void insertionSort (int *a, int left, int right) {
+void insertionSort(int *a, int left, int right)
+{
     int i, j, key;
 
     for (i = left + 1; i <= right; i++) {
@@ -154,8 +163,10 @@ void insertionSort (int *a, int left, int right) {
         a[j + 1] = key;
     }
 }
-/*---------------insertion-sort---------------*/
-void bubbleSort (int *a, int left, int right) {
+
+/*---------------bubble-sort---------------*/
+void bubbleSort(int *a, int left, int right)
+{
     int i, j, max;
 
     for (i = right; i > left; i--) {
@@ -165,7 +176,7 @@ void bubbleSort (int *a, int left, int right) {
             if (a[j] > a[max]) max = j; 
         }
         
-        swap (a, max, i);
+        swap(a, max, i);
 
     }
 }
