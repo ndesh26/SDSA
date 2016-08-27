@@ -5,6 +5,8 @@ were taught in my course on Algorithms.
 
 Data Structures Implemented:-
 
+1. Doubly Linked List
+
 Algorithms Implemented:-
 
 1. Sorting Algorithms
