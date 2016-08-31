@@ -5,21 +5,34 @@
 
 struct stack *create_empty_stack(long int size)
 {
-    return NULL;
+    struct stack *sp;
+    sp = malloc(sizeof(struct stack));
+    sp->arr = (long int *)malloc(size * sizeof(long int));
+    sp->size = size;
+    sp->top = 0;
+    return sp;
 }
 
-void push(struct stack *s, long int value)
+void push(struct stack *sp, long int value)
 {
- //do something
+    if (sp == NULL)
+        return;
+
+    sp->arr[++(sp->top)] = value;
 }
 
-int is_empty_stack(struct stack *s)
+int is_empty_stack(struct stack *sp)
 {
-    return (s->top == 0); 
+    return (sp->top == 0); 
 }
 
-long int pop(struct stack *s)
+long int pop(struct stack *sp)
 {
-    return 0;
+    if (sp == NULL)
+        return NULL;
+
+    (sp->top)--;    
+
+    return sp->arr[sp->top + 1];
 }
 

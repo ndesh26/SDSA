@@ -9,8 +9,8 @@ struct stack{
 };
 
 struct stack *create_empty_stack(long int);
-void push(struct stack *s, long int value);
-int is_empty(struct stack *s);
-long int pop(struct stack *s);
+void push(struct stack *sp, long int value);
+int is_empty(struct stack *sp);
+long int pop(struct stack *sp);
 
 #endif
