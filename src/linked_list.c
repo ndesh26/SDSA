@@ -41,7 +41,7 @@ void insert(long int value, struct node *p)
  * Return 1 if list is empty and 0 if it is not
  * No practical use of function
  */
-int is_empty(struct node *head)
+int is_empty_list(struct node *head)
 {
     return (head == NULL);
 }

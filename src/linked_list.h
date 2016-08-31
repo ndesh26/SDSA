@@ -10,7 +10,7 @@ struct node{
 
 void display_list(struct node *head);
 void insert(long int value, struct node *p);
-int is_empty(struct node *head);
+int is_empty_list(struct node *head);
 struct node *search(long int value, struct node *head);
 void delete(struct node *p);
 
