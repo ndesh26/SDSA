@@ -3,30 +3,35 @@
 
 #include "queue.h"
 
-struct node create_empty(int size_of_queue){
-    struct node Queue;
-    int Queue.q = malloc(size_of_queue*sizeof(int *));
-    Queue.q = NULL;
-    int Queue.top = 0;
-    int Queue.bottom = 0;
-    return Queue;
+//This creates an empty structure for queue
+struct queue create_empty(int size){
+    struct queue qp;
+    int qp.q = malloc(size_of_queue*sizeof(int *));
+    qp.q = NULL;
+    qp.size = size_of_queue;
+    qp.top = 0;
+    qp.bottom = 0;
+    return qp;
 }
 
-int is_empty(struct node Queue){
+//This checks if the queue is empty
+int is_empty(struct queue qp){
     int empty;
-    if(Queue.top > Queue.bottom) empty=1;
+    if(qp.top > qp.bottom) empty=1;
     else empty = 0;
     return empty;
 }
 
-int dequeue(int *Queue){
-    int value = Queue.q[Queue.bottom];
-    Queue.bottom--;
+//Dequeue and element from a queue
+int dequeue(struct queue qp){
+    int value = qp.q[qp.bottom];
+    qp.bottom--;
     return value;
 }
 
-void enqueue(int *Queue, int value){
-    Queue.bottom++;
-    Queue.q[Queue.bottom] = value;
+//Enqueue an element into a queue
+void enqueue(struct queue qp, int value){
+    qp.bottom++;
+    qp.q[qp.bottom] = value;
     return;
 }
