@@ -3,13 +3,17 @@
 
 #define SIZE 10000  //Queue Size
 
+struct node{
+    int top;
+    int bottom;
+    int *Queue;
+};
+
 //Queries and Functions
 
 void create_empty();
-int is_empty(int *Queue);
-int dequeue(int *Queue);
-void enqueue(int *Queue, int value);
-int top(int *Queue);
-int bottom(int *Queue);
+int is_empty(struct node);
+int dequeue(struct node);
+void enqueue(struct node, int value);
 
 #endif
