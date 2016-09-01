@@ -41,7 +41,7 @@ void insert(long int value, struct node *p)
  * Return 1 if list is empty and 0 if it is not
  * No practical use of function
  */
-int isEmpty(struct node *head)
+int is_empty_list(struct node *head)
 {
     return (head == NULL);
 }
@@ -50,7 +50,7 @@ int isEmpty(struct node *head)
  * Returns pointer to node with with given value
  * if it exists. Returns NULL otherwise
  */
-struct node *Search(long int value, struct node *head)
+struct node *search(long int value, struct node *head)
 {
     while (head != NULL) {
         if (head->value == value) {
